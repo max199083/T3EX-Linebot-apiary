@@ -5,7 +5,60 @@ HOST: http://polls.apiblueprint.org/
 
 Polls is a simple API allowing consumers to view polls and vote in them.
 
-## Questions Collection [/questions]
+## a-0 [/a0]
+
+### a-0 [GET]
+
++ Response 201 (application/json)
+
+        {
+          "type": "template",
+          "altText": "this is a carousel template",
+          "template": {
+            "type": "carousel",
+            "actions": [],
+            "columns": [
+              {
+                "thumbnailImageUrl": "http://a.ecimg.tw/items/DBACC4A900872CC/000001_1514860183.jpg",
+                "title": "【ENAAK】香脆點心麵 (16gx12包) 網路價 $75",
+                "text": "◎韓國、團購熱銷商品  ◎香濃可口的雞汁風味  ◎搭配口感酥脆、風味獨特  ◎一吃上癮好滋味  ◎大人、小孩都愛吃的零嘴",
+                "actions": [
+                  {
+                    "type": "uri",
+                    "label": "前往購買",
+                    "uri": "http://24h.pchome.com.tw/prod/DBACC4-A900872CC"
+                  }
+                ]
+              },
+              {
+                "thumbnailImageUrl": "http://a.ecimg.tw/items/DBAEANA9008JI3J/000001_1510554342.jpg",
+                "title": "【HIRO】薯片-番茄風味 160g 網路價 $58",
+                "text": "完美厚度，片片薄脆，番茄風味讓喜愛酸味的朋友無法抗拒，一口接一口",
+                "actions": [
+                  {
+                    "type": "uri",
+                    "label": "前往購買",
+                    "uri": "http://24h.pchome.com.tw/prod/DBAEAN-A9008JI3J"
+                  }
+                ]
+              },
+              {
+                "thumbnailImageUrl": "http://a.ecimg.tw/items/DBAEA1A9008AN2D/i010001_1502266662.jpg",
+                "title": "【Tiffany】Light輕爽小麥消化餅 250g 網路價 $76",
+                "text": "小麥減量，讓不喜歡小麥味道的朋友，也能夠輕易地接受，但卻能獲得同樣的營養價值。  ★小麥精選研磨，香氣迷人  ★餅乾軟硬",
+                "actions": [
+                  {
+                    "type": "uri",
+                    "label": "前往購買",
+                    "uri": "http://24h.pchome.com.tw/prod/DBAEA1-A9008AN2D?q=/S/DBAEA0"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+        
+## D-0 [/d0]
 
 ### D-0 [GET]
 
@@ -52,49 +105,3 @@ Polls is a simple API allowing consumers to view polls and vote in them.
             }
           ]
         }
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
