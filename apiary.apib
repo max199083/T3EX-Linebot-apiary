@@ -1,0 +1,100 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# T3EXLINEJson
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+
+## Questions Collection [/questions]
+
+### D-0 [GET]
+
++ Response 200 (application/json)
+
+        {
+          "type": "imagemap",
+          "baseUrl": "PROVIDE_URL_FROM_YOUR_SERVER",
+          "altText": "This is an imagemap",
+          "baseSize": {
+            "width": 1040,
+            "height": 1040
+          },
+          "actions": [
+            {
+              "type": "message",
+              "area": {
+                "x": 0,
+                "y": 0,
+                "width": 340,
+                "height": 1040
+              },
+              "text": "吃貨最愛"
+            },
+            {
+              "type": "message",
+              "area": {
+                "x": 693,
+                "y": 0,
+                "width": 347,
+                "height": 1040
+              },
+              "text": "生活小物"
+            },
+            {
+              "type": "message",
+              "area": {
+                "x": 340,
+                "y": 0,
+                "width": 353,
+                "height": 1040
+              },
+              "text": "流行配件"
+            }
+          ]
+        }
+
+### Create a New Question [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
